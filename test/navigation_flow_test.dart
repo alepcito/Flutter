@@ -144,9 +144,10 @@ void main() {
     await _tapOnBack(tester);
     expect(find.text('Bienvenido'), findsOneWidget);
 
-    // 8. Navegar a AccountPage desde WelcomePage.
+    // 8. Navegar al perfil GraphQL desde WelcomePage.
     await _tapOnText(tester, 'Mi cuenta');
-    expect(find.text('Datos de Cuenta'), findsOneWidget);
+    expect(find.text('Mi cuenta'), findsOneWidget);
+    expect(find.byTooltip('Actualizar perfil'), findsOneWidget);
 
     // Regresar a WelcomePage.
     await _tapOnBack(tester);

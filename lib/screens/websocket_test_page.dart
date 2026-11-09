@@ -1,8 +1,9 @@
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import '../widgets/academic_screen.dart';
 
 class WebSocketTestPage extends StatefulWidget {
   const WebSocketTestPage({super.key});
@@ -15,8 +16,7 @@ class _WebSocketTestPageState extends State<WebSocketTestPage> {
   WebSocketChannel? _channel;
   StreamSubscription<dynamic>? _subscription;
 
-  final TextEditingController _messageController =
-      TextEditingController();
+  final TextEditingController _messageController = TextEditingController();
 
   final List<String> _messages = [];
 
@@ -89,9 +89,7 @@ class _WebSocketTestPageState extends State<WebSocketTestPage> {
   void _sendMessage() {
     final mensaje = _messageController.text.trim();
 
-    if (mensaje.isEmpty ||
-        !_connected ||
-        _channel == null) {
+    if (mensaje.isEmpty || !_connected || _channel == null) {
       return;
     }
 
@@ -115,32 +113,61 @@ class _WebSocketTestPageState extends State<WebSocketTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Pruebas de WebSocket'),
+    return AcademicScreen(
+      title: 'ChatBot',
+      header: Column(
+        children: [
+          SvgPicture.asset('assets/Pantera.svg',
+              height: 50,
+              width: 50,
+              semanticsLabel: 'Icono ChatBot',
+              colorFilter:
+                  const ColorFilter.mode(academicGuinda, BlendMode.srcIn)),
+          const SizedBox(height: 4),
+          const Text('ChatBot',
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: academicGuinda)),
+          const Text('Tu asistente virtual',
+              style: TextStyle(fontSize: 12, color: Colors.grey)),
+          const SizedBox(height: 4),
+          Tooltip(
+              message: _status,
+              child: Text(_status,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 12,
+                      color: _connected ? Colors.green : Colors.red))),
+        ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
         child: Column(
           children: [
-            Text(
-              _status,
-              style: TextStyle(
-                color: _connected ? Colors.green : Colors.red,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 16),
             Expanded(
-              child: ListView.builder(
-                itemCount: _messages.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    dense: true,
-                    title: Text(_messages[index]),
-                  );
-                },
-              ),
+              child: _messages.isEmpty
+                  ? const Center(
+                      child: Text(
+                          'Envía un mensaje para conversar con el servidor.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.grey, fontSize: 14)))
+                  : ListView.builder(
+                      itemCount: _messages.length,
+                      itemBuilder: (context, index) {
+                        final isMine = _messages[index].startsWith('Tú:');
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 6),
+                          child: Text(_messages[index],
+                              style: TextStyle(
+                                  color: isMine
+                                      ? academicGuinda
+                                      : Colors.black87)),
+                        );
+                      },
+                    ),
             ),
             Row(
               children: [
@@ -149,8 +176,15 @@ class _WebSocketTestPageState extends State<WebSocketTestPage> {
                     controller: _messageController,
                     enabled: _connected,
                     decoration: const InputDecoration(
-                      labelText: 'Escribe un mensaje',
-                      border: OutlineInputBorder(),
+                      hintText: 'Escribe tu mensaje...',
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(24)),
+                          borderSide: BorderSide(color: Colors.grey)),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(24)),
+                          borderSide: BorderSide(color: academicGuinda)),
                     ),
                     onSubmitted: (_) => _sendMessage(),
                   ),
@@ -160,6 +194,13 @@ class _WebSocketTestPageState extends State<WebSocketTestPage> {
                   onPressed: _connected ? _sendMessage : null,
                   icon: const Icon(Icons.send),
                   tooltip: 'Enviar mensaje',
+                  style: IconButton.styleFrom(
+                    minimumSize: const Size(50, 50),
+                    backgroundColor: academicGuinda,
+                    foregroundColor: Colors.white,
+                    disabledBackgroundColor: academicBeige,
+                    shape: const CircleBorder(),
+                  ),
                 ),
               ],
             ),

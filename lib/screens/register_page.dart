@@ -239,7 +239,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                                   _buildIconButton(
                                     'assets/add.svg',
-                                    jsonStrings['address'],
+                                    jsonStrings['adress'],
                                     context,
                                   ),
 
@@ -280,7 +280,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   const SizedBox(height: 60.0),
 
                                   Text(
-                                    jsonStrings['address'],
+                                    jsonStrings['adress'],
                                     style: const TextStyle(
                                       color: Color.fromARGB(255, 111, 38, 59),
                                       fontSize: 16.0,

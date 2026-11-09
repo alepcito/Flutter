@@ -12,9 +12,9 @@
     "mandatory_field": "Este campo es requerido",
     "my_account": "Mi cuenta",
     "register": "Registro",
-    "products": "Productos",
-    "chatbot": "Pendiente",
-    "privacy": "Pendiente",
+    "products": "Notificaciones",
+    "chatbot": "Chat",
+    "privacy": "Privacidad",
     "logout": "Cerrar sesión",
 
     "name_register": "Fulanito Torres Torres",
@@ -23,7 +23,7 @@
     "photo": "Fotografía",
     "register_button":"Registrar",
 
-    
+
     "personal": "Personal",
     "name": "Nombre",
     "last_name": "Primer apellido",
@@ -57,4 +57,4 @@
     "indication4":"Sin filtros",
     "indication5":"No debe ser una selfie"
   }
-  
+

@@ -3,7 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:aplicacion2/services/token_manager.dart';
 import 'package:aplicacion2/models/userdata.dart';
 import 'package:aplicacion2/screens/register_page.dart';
-import 'package:aplicacion2/screens/account_page.dart';
+import 'package:aplicacion2/screens/profile_page.dart';
+import 'package:aplicacion2/screens/notifications_page.dart';
+import 'package:aplicacion2/screens/websocket_test_page.dart';
+import 'package:aplicacion2/screens/privacy_page.dart';
 
 /// Logo fijo y posicionado en la parte superior,
 /// centrado horizontalmente.
@@ -70,7 +73,7 @@ Widget customIconButton({
 
     // Acción al presionar el botón.
     onTap: () async {
-      print('Click en $acronimo');
+      debugPrint('Click en $acronimo');
 
       // Navegación hacia Registro.
       if (acronimo == 'Registro' || acronimo == 'Register') {
@@ -89,16 +92,31 @@ Widget customIconButton({
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => AccountPage(
-              jsonStrings: jsonStrings,
-            ),
+            builder: (context) => const ProfilePage(),
           ),
         );
+      } else if (acronimo == jsonStrings['products']) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const NotificationsPage(),
+            ));
+      } else if (acronimo == jsonStrings['chatbot']) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const WebSocketTestPage(),
+            ));
+      } else if (acronimo == jsonStrings['privacy']) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const PrivacyPage(),
+            ));
       }
       // 3. LÓGICA DE CERRAR SESIÓN
       else if (acronimo == jsonStrings['logout'] ||
-              acronimo == 'Cerrar sesión') {
-
+          acronimo == 'Cerrar sesión') {
         // Borrar los tokens guardados en SharedPreferences.
         await TokenManager.clearTokens();
 

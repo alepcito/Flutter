@@ -12,17 +12,17 @@
     "mandatory_field": "This field is required",
     "my_account": "My Account",
     "register": "Register",
-    "products": "Products",
-    "chatbot": "Pending",
-    "privacy": "Pending",
+    "products": "Notifications",
+    "chatbot": "Chat",
+    "privacy": "Privacy",
     "logout": "Logout",
-  
+
     "name_register": "Funalito Torres Torres",
     "account": "Account",
     "adress": "Address",
     "photo": "Photo",
     "register_button": "Register",
-  
+
     "personal": "Personal",
     "name": "First name",
     "last_name": "Last Name",
@@ -31,7 +31,7 @@
     "gender": "Gender",
     "nationality": "Nationality",
     "continue": "Continue",
-  
+
     "phone": "Phone",
     "email_account": "Email address",
     "username": "Username",
@@ -39,7 +39,7 @@
     "pass_account": "Password",
     "occupation": "Occupation or position",
     "role": "Role",
-  
+
     "zip_code": "Zip code",
     "state": "State",
     "city": "City or municipality",
@@ -48,7 +48,7 @@
     "ext_number": "Exterior number",
     "int_number": "Interior number",
     "reference": "Reference",
-  
+
     "take_picture": "Take or upload a photo with the following characteristics:",
     "indication1": "White background",
     "indication2": "Face and ears uncovered",
@@ -56,4 +56,4 @@
     "indication4": "No filters",
     "indication5": "Should not be a selfie"
   }
-  
+

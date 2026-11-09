@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:aplicacion2/widgets/custom_widgets.dart';
-import 'package:aplicacion2/screens/graphql_test_page.dart';
-import 'package:aplicacion2/screens/websocket_test_page.dart';
-import 'package:aplicacion2/screens/sse_test_page.dart';
+// import 'package:aplicacion2/screens/graphql_test_page.dart';
+// import 'package:aplicacion2/screens/websocket_test_page.dart';
+// import 'package:aplicacion2/screens/sse_test_page.dart';
 /// Página de bienvenida que presenta un menú con accesos directos
 /// a diferentes secciones de la aplicación.
 ///
@@ -150,6 +150,8 @@ class WelcomePage extends StatelessWidget {
                               ],
                             ),
                             
+                            /* Botón de prueba SSE oculto para integrar la
+                               tecnología en una pantalla funcional.
                             const SizedBox(height: 12.0),
 
                             ElevatedButton.icon(
@@ -164,6 +166,7 @@ class WelcomePage extends StatelessWidget {
                               icon: const Icon(Icons.notifications_active),
                               label: const Text('Probar SSE'),
                             ),
+                            */
                             /*
                               //Boton prueba de GraphQL
                             const SizedBox(height: 20.0),
