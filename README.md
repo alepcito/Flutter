@@ -1,4 +1,4 @@
-﻿# aplicacion2 — Aplicación académica en Flutter
+﻿# Flutter + WebScoket, GraphQL y SSE
 
 Cliente Flutter desarrollado con Dart para practicar autenticación, formularios y comunicación con servidores mediante REST, GraphQL, Server-Sent Events (SSE) y WebSocket. Utiliza Material 3, recursos SVG y fuentes personalizadas.
 
