@@ -1,0 +1,63 @@
+name: aplicacion2
+
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # ─── UI y recursos ───────────────────────────────────────
+  flutter_svg: ^2.0.10              # Renderizar íconos SVG
+  cupertino_icons: ^1.0.8           # Íconos estilo iOS
+  flutter_localizations:            # Localización (es/en)
+    sdk: flutter
+
+  # ─── Red y persistencia ──────────────────────────────────
+  http: ^1.2.0                      # Peticiones HTTP al API
+  shared_preferences: ^2.3.2        # Guardar el token localmente
+  dio: ^5.11.1
+  provider: ^6.1.5+1
+  flutter_client_sse: ^2.0.3
+  web_socket_channel: ^3.0.3
+  graphql_flutter: ^5.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/add.svg
+    - assets/icono.svg
+    - assets/Usuario.svg
+    - assets/Cerrar.svg
+    - assets/Notificaciones.svg
+    - assets/Pantera.svg
+    - assets/Privacidad.svg
+    - assets/Registro.svg
+    - assets/Fotografia.svg
+    - assets/Correo.svg
+    - assets/Avatar.svg
+    - assets/logo.svg
+    - assets/es.json
+    - assets/en.json
+
+  fonts:
+    - family: FontRoboto
+      fonts:
+        - asset: assets/Roboto.ttf
+    - family: FontConsolas
+      fonts:
+        - asset: assets/Consolas.ttf

@@ -1,0 +1,16 @@
+
+services:
+  flutter_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: flutter_contenedor_web
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    ports:
+      - "8081:8080"
+    volumes:
+      - .:/app
+      - /app/.dart_tool
+      - /app/.pub-cache
